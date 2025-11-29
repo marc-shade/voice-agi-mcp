@@ -38,7 +38,7 @@ class IntentDetector:
         Initialize intent detector
 
         Args:
-            ollama_url: Ollama API URL (defaults to cloud mac-studio)
+            ollama_url: Ollama API URL (defaults to cluster AI node)
             model: LLM model to use for intent detection
         """
         self.ollama_url = ollama_url or self.DEFAULT_OLLAMA_URL
