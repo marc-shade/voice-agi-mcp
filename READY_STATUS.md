@@ -323,7 +323,7 @@ r'\bremember\b' in "remember that i'm marc" → 20 pts (lower)
 ```
 
 **Date Prepared**: 2025-11-24 09:42 AM
-**System**: Mac Pro 5,1 Agentic Node (macpro51)
+**System**: Agentic Node (Linux Builder)
 **Component**: Voice-AGI MCP Server
 **Version**: v0.2.0
 **Status**: ✅ **VERIFIED AND READY**
