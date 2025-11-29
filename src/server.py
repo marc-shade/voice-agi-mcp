@@ -37,7 +37,8 @@ voice_pipeline = VoicePipeline(stt_model="base", tts_voice="en-IE-EmilyNeural")
 tool_registry = ToolRegistry()
 
 # Use cloud-first strategy from environment
-ollama_url = os.getenv('OLLAMA_URL', 'http://192.168.1.186:11434')
+# Configure OLLAMA_URL to point to your inference node (e.g., http://your-node:11434)
+ollama_url = os.getenv('OLLAMA_URL', 'http://localhost:11434')
 ollama_model = os.getenv('OLLAMA_MODEL', 'gpt-oss:20b-cloud')
 intent_detector = IntentDetector(ollama_url=ollama_url, model=ollama_model)
 
