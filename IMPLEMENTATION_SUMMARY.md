@@ -8,7 +8,7 @@ All phases of the Voice-AGI system have been implemented and tested.
 
 ### 1. Complete Voice-AGI MCP Server
 
-**Location**: `/mnt/agentic-system/mcp-servers/voice-agi-mcp/`
+**Location**: `${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/`
 
 **Components**:
 ```
@@ -188,7 +188,7 @@ From testing:
 ## 📁 File Structure
 
 ```
-/mnt/agentic-system/mcp-servers/voice-agi-mcp/
+${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/
 ├── src/
 │   ├── __init__.py                     # 9 lines
 │   ├── server.py                       # 875 lines (main server + 10 tools)
@@ -379,7 +379,7 @@ voice_chat(text="Improve consolidation speed")
   "mcpServers": {
     "voice-agi": {
       "command": "python3",
-      "args": ["/mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py"],
+      "args": ["${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py"],
       "env": {
         "OLLAMA_URL": "http://localhost:11434",
         "OLLAMA_MODEL": "llama3.2"

@@ -74,7 +74,7 @@ User Voice → Voice Pipeline (STT) → Intent Detector (Ollama)
 ### 1. Install Dependencies
 
 ```bash
-cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
+cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
 pip install -r requirements.txt
 ```
 
@@ -100,7 +100,7 @@ Add to `~/.claude.json`:
   "mcpServers": {
     "voice-agi": {
       "command": "python3",
-      "args": ["/mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py"],
+      "args": ["${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py"],
       "disabled": false
     }
   }
@@ -525,7 +525,7 @@ Part of the Mac Pro 5,1 Agentic System - see main system documentation.
 For issues or questions:
 - Check logs: `journalctl -f | grep voice-agi`
 - Test components individually (see Troubleshooting)
-- Review AGI system documentation in `/home/marc/`
+- Review AGI system documentation in `${HOME}/`
 
 ---
 

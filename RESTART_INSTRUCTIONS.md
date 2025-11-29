@@ -31,7 +31,7 @@ claude
 After restart, run the validation script:
 
 ```bash
-cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
+cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
 python validate_post_restart.py
 ```
 
@@ -96,8 +96,8 @@ cat ~/.claude.json | jq '.mcpServers["voice-agi"]'
 **Should show:**
 ```json
 {
-  "command": "/mnt/agentic-system/.venv/bin/python",
-  "args": ["/mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py"],
+  "command": "${AGENTIC_SYSTEM_PATH:-/opt/agentic}/.venv/bin/python",
+  "args": ["${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py"],
   "env": {
     "OLLAMA_URL": "http://localhost:11434",
     "OLLAMA_MODEL": "llama3.2"
@@ -108,8 +108,8 @@ cat ~/.claude.json | jq '.mcpServers["voice-agi"]'
 
 **Manual test:**
 ```bash
-/mnt/agentic-system/.venv/bin/python \
-  /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py
+${AGENTIC_SYSTEM_PATH:-/opt/agentic}/.venv/bin/python \
+  ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py
 ```
 
 Should see:
@@ -134,7 +134,7 @@ If this fails, the MCP server didn't load. Check logs or run manual test above.
 
 **Run validation script:**
 ```bash
-cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
+cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
 python validate_post_restart.py
 ```
 
@@ -147,7 +147,7 @@ Total: 5/5 checks passed (100%)
 
 If it fails, check that you're using the improvements code:
 ```bash
-grep "enhanced scoring" /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/tool_registry.py
+grep "enhanced scoring" ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/tool_registry.py
 ```
 
 ---
@@ -187,7 +187,7 @@ grep "enhanced scoring" /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/tool_r
 ## Files Modified
 
 ```
-/mnt/agentic-system/mcp-servers/voice-agi-mcp/
+${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/
 ├── src/
 │   ├── parameter_extractor.py      [NEW] 372 lines - NLP extraction
 │   ├── tool_registry.py            [UPDATED] Enhanced scoring
@@ -209,13 +209,13 @@ If issues persist after restart:
 
 1. **Check Python environment:**
    ```bash
-   /mnt/agentic-system/.venv/bin/python --version
+   ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/.venv/bin/python --version
    # Should be Python 3.14+
    ```
 
 2. **Check dependencies:**
    ```bash
-   cd /mnt/agentic-system && source .venv/bin/activate
+   cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic} && source .venv/bin/activate
    pip list | grep -E "fastmcp|aiohttp|edge-tts"
    # All should be installed
    ```

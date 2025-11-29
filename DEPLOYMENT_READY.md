@@ -146,7 +146,7 @@ After:  ✓ 75-100% extraction success rate
 ## 📁 Changed Files
 
 ```
-/mnt/agentic-system/mcp-servers/voice-agi-mcp/
+${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/
 ├── src/
 │   ├── parameter_extractor.py          [NEW] 372 lines
 │   ├── tool_registry.py                [UPDATED] Enhanced scoring
