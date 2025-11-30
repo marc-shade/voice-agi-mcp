@@ -28,7 +28,7 @@ class ParameterExtractor:
     Extract structured parameters from natural language using Ollama
     """
     # Cloud-first Ollama endpoint (never use local CPU for LLM inference)
-    DEFAULT_OLLAMA_URL = os.getenv('OLLAMA_HOST', 'http://Marcs-<HOSTNAME>.local:11434')
+    DEFAULT_OLLAMA_URL = os.getenv('OLLAMA_HOST', 'http://Marcs-orchestrator.example.local:11434')
 
     def __init__(self, ollama_url: str = None, model: str = "llama3.2"):
         self.ollama_url = ollama_url or self.DEFAULT_OLLAMA_URL
@@ -294,7 +294,7 @@ def get_extractor() -> ParameterExtractor:
     global _extractor
     if _extractor is None:
         # Cloud-first Ollama (never use local CPU for LLM inference)
-        ollama_url = os.getenv('OLLAMA_URL', os.getenv('OLLAMA_HOST', 'http://Marcs-<HOSTNAME>.local:11434'))
+        ollama_url = os.getenv('OLLAMA_URL', os.getenv('OLLAMA_HOST', 'http://Marcs-orchestrator.example.local:11434'))
         model = os.getenv('OLLAMA_MODEL', 'llama3.2')
         _extractor = ParameterExtractor(ollama_url=ollama_url, model=model)
     return _extractor
