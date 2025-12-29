@@ -7,6 +7,7 @@ Wraps Whisper STT and Edge TTS with unified interface
 import asyncio
 import logging
 import os
+import shutil
 import tempfile
 import struct
 import math
@@ -114,7 +115,7 @@ class VoicePipeline:
             audio_file = tempfile.mktemp(suffix='.wav')
 
             # Use arecord for Linux
-            if os.system('which arecord > /dev/null 2>&1') == 0:
+            if shutil.which('arecord'):
                 cmd = [
                     'arecord',
                     '-D', 'default',
@@ -263,7 +264,7 @@ class VoicePipeline:
             player = None
 
             for p in players:
-                if os.system(f'which {p} > /dev/null 2>&1') == 0:
+                if shutil.which(p):
                     player = p
                     break
 
@@ -371,4 +372,4 @@ class VoicePipeline:
 
     def is_tts_available(self) -> bool:
         """Check if TTS is available"""
-        return os.system('which edge-tts > /dev/null 2>&1') == 0
+        return shutil.which('edge-tts') is not None
