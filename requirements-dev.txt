@@ -1,0 +1,26 @@
+# Development and testing dependencies for voice-agi-mcp
+
+# Core dependencies
+-r requirements.txt
+
+# Testing framework
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+
+# Code quality
+black>=24.0.0
+flake8>=7.0.0
+mypy>=1.8.0
+isort>=5.13.0
+
+# Mocking and fixtures
+faker>=22.0.0
+
+# Performance testing
+pytest-benchmark>=4.0.0
+
+# Test reporting
+pytest-html>=4.1.0
+coverage[toml]>=7.4.0
