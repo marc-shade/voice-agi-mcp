@@ -101,7 +101,7 @@ voice_chat(text="What is my name?")
 Run the test suite anytime to verify components:
 
 ```bash
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
+cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
 python3 test_components.py
 ```
 
@@ -161,7 +161,7 @@ MCP server configured in `~/.claude.json`:
   "mcpServers": {
     "voice-agi": {
       "command": "python3",
-      "args": ["${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py"],
+      "args": ["/mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py"],
       "env": {
         "OLLAMA_URL": "http://localhost:11434",
         "OLLAMA_MODEL": "llama3.2"
@@ -275,7 +275,7 @@ Tips:
 ls ~/.claude/debug/
 
 # Test server manually
-python3 ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py
+python3 /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py
 
 # Should see:
 # "Voice-AGI MCP Server Starting"

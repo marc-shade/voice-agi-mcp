@@ -11,38 +11,62 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install ruff
-      - run: ruff check . --output-format=github || true
-      - run: ruff format --check . || true
+
+      - name: Install linting tools
+        run: pip install ruff
+
+      - name: Run Ruff linter
+        run: ruff check . --output-format=github || true
+
+      - name: Run Ruff formatter check
+        run: ruff format --check . || true
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: |
+
+      - name: Install dependencies
+        run: |
           pip install pytest pytest-cov pytest-asyncio
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: |
+
+      - name: Run tests
+        run: |
           if [ -d tests ] || ls test_*.py 1> /dev/null 2>&1; then
             pytest -v --cov=. --cov-report=term-missing || true
+          else
+            echo "No tests found, skipping"
           fi
 
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install bandit pip-audit
-      - run: bandit -r . -x ./tests,./.venv -ll || true
-      - run: |
+
+      - name: Install security tools
+        run: pip install bandit pip-audit
+
+      - name: Run Bandit security scan
+        run: bandit -r . -x ./tests,./.venv -ll || true
+
+      - name: Check dependencies for vulnerabilities
+        run: |
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
             pip-audit --strict || true
@@ -52,13 +76,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: |
+
+      - name: Install dependencies
+        run: |
           pip install mypy
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - run: |
-          if [ -d src ]; then mypy src/ --ignore-missing-imports || true
-          elif [ -f server.py ]; then mypy server.py --ignore-missing-imports || true
+
+      - name: Run type checking
+        run: |
+          if [ -d src ]; then
+            mypy src/ --ignore-missing-imports || true
+          elif [ -f server.py ]; then
+            mypy server.py --ignore-missing-imports || true
           fi

@@ -281,7 +281,7 @@ After restarting Claude Code, the improvements are automatically loaded via MCP 
 {
   "voice-agi": {
     "command": "python3",
-    "args": ["${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py"],
+    "args": ["/mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py"],
     "env": {
       "OLLAMA_URL": "http://localhost:11434",
       "OLLAMA_MODEL": "llama3.2"
@@ -357,7 +357,7 @@ After restarting Claude Code, the improvements are automatically loaded via MCP 
 ## 📞 Contact & Support
 
 For issues or questions about these improvements:
-- Review test output: `${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/test_improvements.py`
+- Review test output: `/mnt/agentic-system/mcp-servers/voice-agi-mcp/test_improvements.py`
 - Check logs: Look for `voice-agi.params` and `voice-agi.tools` logger output
 - Verify Ollama: `curl http://localhost:11434/api/tags`
 

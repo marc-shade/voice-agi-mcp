@@ -76,7 +76,7 @@ if matched_tool:  # ✓ Trust 100% accurate matcher
 ### 1. Restart Claude Code
 ```bash
 exit
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}
+cd /mnt/agentic-system
 claude
 ```
 
@@ -105,7 +105,7 @@ mcp__voice-agi__voice_chat(text="Research transformer architectures")
 
 ### 3. Run Validation
 ```bash
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
+cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
 python validate_post_restart.py
 ```
 
@@ -220,8 +220,8 @@ After restart, if any test still fails:
 
 2. **Manual test**:
    ```bash
-   ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/.venv/bin/python \
-     ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py
+   /mnt/agentic-system/.venv/bin/python \
+     /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py
    ```
 
 3. **Review intent detection**:

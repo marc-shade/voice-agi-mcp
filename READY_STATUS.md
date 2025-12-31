@@ -203,7 +203,7 @@ claude  # Start new session
 
 **After Restart:**
 ```bash
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
+cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
 python validate_post_restart.py
 ```
 
@@ -219,8 +219,8 @@ Voice-AGI v0.2.0 improvements are fully active
 
 **Test server manually:**
 ```bash
-${AGENTIC_SYSTEM_PATH:-/opt/agentic}/.venv/bin/python \
-  ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp/src/server.py
+/mnt/agentic-system/.venv/bin/python \
+  /mnt/agentic-system/mcp-servers/voice-agi-mcp/src/server.py
 ```
 
 **Check configuration:**
@@ -230,13 +230,13 @@ cat ~/.claude.json | jq '.mcpServers["voice-agi"]'
 
 **Run full test suite:**
 ```bash
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic}/mcp-servers/voice-agi-mcp
+cd /mnt/agentic-system/mcp-servers/voice-agi-mcp
 python test_improvements.py
 ```
 
 **Verify dependencies:**
 ```bash
-cd ${AGENTIC_SYSTEM_PATH:-/opt/agentic} && source .venv/bin/activate
+cd /mnt/agentic-system && source .venv/bin/activate
 pip list | grep -E "fastmcp|aiohttp|edge-tts"
 ```
 

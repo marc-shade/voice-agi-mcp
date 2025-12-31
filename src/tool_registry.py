@@ -44,7 +44,7 @@ class ToolRegistry:
         if _EXTRACTOR_AVAILABLE:
             import os
             # Cloud-first Ollama (never use local CPU for LLM inference)
-            ollama_url = os.getenv('OLLAMA_URL', os.getenv('OLLAMA_HOST', 'http://Marcs-orchestrator.example.local:11434'))
+            ollama_url = os.getenv('OLLAMA_URL', os.getenv('OLLAMA_HOST', 'http://Marcs-Mac-Studio.local:11434'))
             model = os.getenv('OLLAMA_MODEL', 'llama3.2')
             self.param_extractor = ParameterExtractor(ollama_url=ollama_url, model=model)
             logger.info("Parameter extractor initialized")

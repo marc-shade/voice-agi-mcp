@@ -27,7 +27,7 @@ class Intent:
 class IntentDetector:
     """Intent detection using cloud Ollama LLM (never use local CPU for inference)"""
     # Cloud-first Ollama endpoint
-    DEFAULT_OLLAMA_URL = os.getenv('OLLAMA_HOST', 'http://Marcs-orchestrator.example.local:11434')
+    DEFAULT_OLLAMA_URL = os.getenv('OLLAMA_HOST', 'http://Marcs-Mac-Studio.local:11434')
 
     def __init__(
         self,
